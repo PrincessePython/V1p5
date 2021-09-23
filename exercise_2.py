@@ -10,17 +10,31 @@ def liste_nom_products():
 
     parametres = {
         "action":"process",
-        "json": True,
+        "tagtype_0":"categories",
+        "tag_contains_1":"contains",
         "nutrition_grade": "A",
+        # "additive":"without",
+        # "tagtype_0":"stores",
+        # "tagtype_1":"categorie",
+        "fields":"product_name",
         "page": 1,
-        "page_size": 20
+        # "page":2,
+        # "page":3,
+        # "page":4,
+        # "page":5,
+        "page_size": 1000,
+         "json": True,
                 
     }
     r = requests.get("https://world.openfoodfacts.org/cgi/search.pl", params=parametres)
 
-    # data = json.loads(r.text)
-    # print(data)
     data = r.json()
-    print(data)
 
+    # dict_keys(['count', 'page', 'page_count', 'page_size', 'products', 'skip'])
+
+    # Get a list of dicts for 1000 products
+    list_of_products = data["products"][0:-1]
+    print(list_of_products)
+   
+  
 liste_nom_products()
