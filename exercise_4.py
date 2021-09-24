@@ -15,7 +15,6 @@ def liste_fr_products():
         "tag_contains_0":"contains",
         "tag_0":"pizza",
         "fields" : "product_name,stores",
-        # "unique_scans_n": "top-country-fr-scans-2020",
         "page" : 1,
         "page_size":50,
         "json": True
