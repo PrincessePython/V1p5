@@ -14,12 +14,10 @@ def liste_fr_products():
         "tagtype_0":"nutrition_grades",
         "tag_contains_0": "contains",
         "tag_0": "a",
-        # "tagtype_1":"categories",
-        # "tag_contains_1":"contains",
-        # "tag_1":"pizza",
+        "sort_by":"unique_scans_n",
         "fields" : "product_name,stores",
         "page" : 1,
-        "page_size":50,
+        "page_size":1000,
         "json": True
         }
 
@@ -27,10 +25,12 @@ def liste_fr_products():
 
     data = r.json()
     
-    # dict_keys(['count', 'page', 'page_count', 'page_size', 'products', 'skip'])
-
-    a = data["products"]
+    data = data["products"]
     liste_fr_products.append(data)
-    print(type(liste_fr_products))
+    liste_fr_products = liste_fr_products[0]
+    print(liste_fr_products)
 
+
+        
 liste_fr_products()
+
